@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="kk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Идрис & Нурайым - Той сайты</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Elegant Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display для заголовков (роскошный), Source Sans 3 для основного текста (чистый, читаемый) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Пользовательские CSS-переменные для цветовой палитры и стиля */
+        :root {
+            --color-primary: #1C1C1C; /* Очень темный угольный, почти черный, но с легкой теплотой */
+            --color-secondary: #F8F5EF; /* Мягкий, теплый кремовый/почти белый, более гостеприимный */
+            --color-accent-gold: #C0A06A; /* Более насыщенный, слегка яркий золотой, роскошный */
+            --color-accent-beige: #E6DBCF; /* Теплый, слегка темнее бежевый, хороший для границ/подложек */
+            --color-text-dark: #333333; /* Более мягкий темный серый для основного текста, менее резкий */
+            --color-text-light: #FFFFFF; /* Чистый белый для контраста на темных фонах */
+            --shadow-subtle: 0 10px 20px rgba(0, 0, 0, 0.12); /* Усиленная, но мягкая тень для глубины */
+            --border-radius-lg: 1.5rem; /* Еще больший радиус для более мягких, современных форм */
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--color-text-dark);
+            background-color: var(--color-secondary);
+            overflow-x: hidden; /* Предотвращает горизонтальный скролл от анимаций */
+            line-height: 1.8; /* Увеличено межстрочное расстояние для максимальной читаемости */
+            letter-spacing: 0.03em; /* Немного увеличено межбуквенное расстояние для элегантности */
+            text-rendering: optimizeLegibility; /* Для лучшего рендеринга текста */
+            -webkit-font-smoothing: antialiased; /* Для сглаживания шрифтов на WebKit */
+            -moz-osx-font-smoothing: grayscale; /* Для сглаживания шрифтов на Firefox */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary);
+            line-height: 1.2;
+            letter-spacing: 0.08em; /* Еще более выраженное межбуквенное расстояние для заголовков */
+        }
+        .text-primary { color: var(--color-primary); }
+        .text-accent-gold { color: var(--color-accent-gold); }
+        .bg-primary { background-color: var(--color-primary); }
+        .bg-accent-gold { background-color: var(--color-accent-gold); }
+        .border-accent-gold { border-color: var(--color-accent-gold); }
+        .hover\:bg-accent-gold:hover { background-color: var(--color-accent-gold); }
+        .shadow-subtle { box-shadow: var(--shadow-subtle); }
+        .rounded-xl { border-radius: var(--border-radius-lg); }
+
+        /* Утонченный разделитель с казахским орнаментом */
+        .ornament-divider {
+            position: relative;
+            height: 1px;
+            background-color: var(--color-accent-beige);
+            margin: 10rem auto; /* Еще больше вертикального пространства */
+            max-width: 60%; /* Уменьшена ширина для большей "дыхания" */
+            opacity: 0.8;
+            overflow: visible; /* Разрешаем элементам выходить за границы */
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 28px; /* Размер орнамента */
+            height: 28px;
+            background-color: var(--color-accent-gold);
+            transform: translateY(-50%) rotate(45deg);
+            border: 1px solid var(--color-accent-beige);
+            border-radius: 6px; /* Более мягкие углы */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25); /* Более выраженная тень для объема */
+        }
+        .ornament-divider::before {
+            left: 50%;
+            margin-left: -80px; /* Увеличенное расстояние */
+        }
+        .ornament-divider::after {
+            left: 50%;
+            margin-left: 55px; /* Увеличенное расстояние */
+        }
+
+        /* Фоновые секции с улучшенным параллаксом */
+        .section-background {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; /* Убираем повторение фона */
+            background-attachment: fixed; /* Для параллакса */
+            color: var(--color-text-light);
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.95); /* Максимально выраженная тень текста для читаемости */
+            padding: 18rem 0; /* Максимально увеличено внутреннее пространство для "кинематографичности" */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0,0,0,0.65); /* Чуть темнее overlay для максимального контраста текста */
+            z-index: 0;
+        }
+        .section-content {
+            position: relative;
+            z-index: 1;
+            padding: 3.5rem; /* Большой отступ */
+            max-width: 85%; /* Адаптивность контента */
+            background-color: rgba(255,255,255,0.05); /* Легкий эффект "стекла" */
+            backdrop-filter: blur(8px); /* Стеклоэффект */
+            border: 1px solid rgba(255,255,255,0.2); /* Тонкая рамка "стекла" */
+            box-shadow: 0 0 40px rgba(0,0,0,0.3); /* Сильная тень для эффекта глубины */
+        }
+
+        /* Пользовательский скроллбар */
+        ::-webkit-scrollbar {
+            width: 10px; /* Немного шире */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent-gold);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a08c5c;
+        }
+
+        /* Анимации появления - кинематографический стиль */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(80px); /* Большее смещение для драматичности */
+            transition: opacity 1.8s cubic-bezier(0.23, 1, 0.32, 1), transform 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-fade-in > * {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 2s cubic-bezier(0.23, 1, 0.32, 1), transform 2s cubic-bezier(0.23, 1, 0.32, 1);
+            transition-delay: var(--delay);
+        }
+        .stagger-fade-in.active > *:nth-child(1) { --delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(2) { --delay: 0.9s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(3) { --delay: 1.3s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(4) { --delay: 1.7s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(5) { --delay: 2.1s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(6) { --delay: 2.5s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active > *:nth-child(7) { --delay: 2.9s; opacity: 1; transform: translateY(0); }
+
+        /* Анимация таймера обратного отсчета */
+        .countdown-digit-wrapper {
+            perspective: 1000px;
+            background-color: rgba(28, 28, 28, 0.8); /* Фон таймера - темный, но с прозрачностью */
+            border: 2px solid var(--color-accent-gold); /* Утолщенная золотая рамка */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Более выраженная тень */
+            border-radius: var(--border-radius-lg);
+            padding: 2rem 1.5rem; /* Увеличенные отступы внутри */
+            transition: all 0.3s ease-in-out; /* Плавный переход для hover */
+        }
+        .countdown-digit-wrapper:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        .countdown-digit {
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Более плавная анимация */
+            display: inline-block;
+            color: var(--color-accent-gold);
+        }
+        .countdown-label {
+            color: var(--color-text-light);
+            font-weight: 500;
+            margin-top: 0.75rem; /* Увеличенный отступ */
+            font-size: 1.1em; /* Чуть крупнее */
+            letter-spacing: 0.05em; /* Добавлен межбуквенный интервал */
+        }
+        .countdown-digit.animate-flip {
+            animation: flip-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Более плавная и длинная анимация flip */
+        }
+        @keyframes flip-in {
+            0% { transform: rotateX(-120deg) scale(0.7); opacity: 0; }
+            100% { transform: rotateX(0deg) scale(1); opacity: 1; }
+        }
+
+        /* Стилизация текстового логотипа */
+        .couple-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem; /* Еще больший размер для Hero */
+            font-weight: 700;
+            line-height: 0.8; /* Еще плотнее */
+            letter-spacing: 0.15em; /* Максимальный межбуквенный интервал */
+            color: var(--color-text-light);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.7em;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.6); /* Более выраженная тень */
+        }
+        .couple-logo span {
+            display: block;
+            font-size: 0.5em; /* Меньший размер для амперсанда */
+            color: var(--color-accent-gold);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            top: auto;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+
+        /* Стилизация 2GIS логотипа */
+        .2gis-logo-container {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .2gis-logo-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Стилизация кнопок и полей ввода */
+        button {
+            transition: all 0.3s ease-in-out;
+            box-shadow: var(--shadow-subtle);
+        }
+        button:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        input[type="text"], textarea {
+            background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+            border: 1px solid var(--color-accent-beige);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Внутренняя тень для глубины */
+            transition: all 0.3s ease-in-out;
+        }
+        input[type="radio"] {
+            border: 2px solid var(--color-accent-gold); /* Золотая рамка для радио-кнопок */
+            background-color: var(--color-secondary); /* Светлый фон */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+        }
+        input[type="radio"]:checked {
+            background-color: var(--color-accent-gold); /* Золотой при выборе */
+            border-color: var(--color-accent-gold);
+        }
+        input[type="radio"]:checked:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px; /* Внутренняя точка */
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-secondary); /* Белая точка */
+        }
+        input[type="text"]:focus, textarea:focus {
+            background-color: var(--color-secondary); /* Полностью белый при фокусе */
+            box-shadow: 0 0 0 3px rgba(192, 160, 106, 0.3); /* Золотое свечение */
+        }
+
+
+        /* Адаптивность для мобильных устройств - главный приоритет */
+        @media (max-width: 768px) {
+            body {
+                line-height: 1.6;
+                letter-spacing: 0.01em;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                letter-spacing: 0.03em;
+            }
+
+            .ornament-divider {
+                margin: 5rem auto; /* Меньше на мобильных */
+                max-width: 90%;
+            }
+            .ornament-divider::before,
+            .ornament-divider::after {
+                width: 18px; /* Меньше орнамент */
+                height: 18px;
+                margin-left: -35px; /* Ближе друг к другу */
+            }
+            .ornament-divider::after {
+                margin-left: 17px;
+            }
+
+            .section-background {
+                padding: 10rem 0; /* Меньше padding на мобильных */
+                background-attachment: scroll; /* Отключаем parallax на мобильных для производительности */
+            }
+            .section-overlay {
+                background-color: rgba(0,0,0,0.7); /* Чуть темнее для максимальной читаемости на мобильных */
+            }
+            .section-content {
+                padding: 1.5rem;
+                border-radius: 1rem; /* Меньше скругление */
+                backdrop-filter: blur(5px); /* Меньше блюр */
+            }
+
+            .nav-link {
+                margin: 0.2rem 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .couple-logo {
+                font-size: 3.5rem;
+                letter-spacing: 0.08em;
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.4em;
+            }
+            .couple-logo span {
+                font-size: 0.45em;
+            }
+
+            .text-xl.md\:text-3xl { font-size: 1.2rem; }
+            .text-lg.md\:text-2xl { font-size: 1rem; }
+            .text-2xl.md\:text-4xl { font-size: 1.25rem; }
+
+            .countdown-digit-wrapper {
+                padding: 0.75rem 0.4rem;
+                border-radius: 0.75rem;
+                border: 1px solid var(--color-accent-gold); /* Тоньше рамка */
+            }
+            .countdown-digit {
+                font-size: 2.2rem;
+            }
+            .countdown-label {
+                font-size: 0.8rem;
+                margin-top: 0.25rem;
+            }
+            .modal-content {
+                padding: 1.25rem;
+                border-radius: 1rem;
+            }
+            .modal-close {
+                font-size: 1.2rem;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+             .text-lg.font-medium {
+                font-size: 0.85rem;
+            }
+            button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .bg-accent-gold.text-white.px-8.py-3 { /* Специфично для LLM кнопки */
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .couple-logo {
+                font-size: 2.5rem;
+                letter-spacing: 0.04em;
+                margin-bottom: 1rem;
+            }
+            .couple-logo span {
+                font-size: 0.38em;
+            }
+            .text-xl.md\:text-3xl { font-size: 1.1rem; }
+            .text-lg.md\:text-2xl { font-size: 0.9rem; }
+            .text-2xl.md\:text-4xl { font-size: 1.1rem; }
+
+            .countdown-digit {
+                font-size: 1.8rem;
+            }
+            .countdown-label {
+                font-size: 0.75rem;
+            }
+            .nav-link {
+                font-size: 0.7rem;
+                margin: 0.15rem 0.3rem;
+            }
+            .ornament-divider {
+                margin: 3rem auto;
+            }
+            .modal-content {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-secondary text-gray-800">
+    <!-- Музыкальный плеер -->
+    <audio id="background-music" loop autoplay>
+        <!-- Музыкальный файл, предоставленный пользователем. -->
+        <source src="https://jmp.sh/dPlTIIQj" type="audio/mp3" onerror="showCustomAlert('Музыкалық файлды жүктеу қатесі. URL-дің MP3 файлына тікелей сілтеме екеніне көз жеткізіңіз.'); this.src='data:audio/mp3;base64,AAAAHGVuam95YmlyZC5jb20=';">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
+    <div class="fixed bottom-4 right-4 z-50">
+        <button id="music-toggle" class="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition duration-300 transform hover:scale-110">
+            <i class="fas fa-pause" id="music-icon"></i>
+        </button>
+    </div>
+
+    <!-- Пользовательское модальное окно для уведомлений (замена alert) -->
+    <div id="custom-alert" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-xl border border-gray-300 z-50 text-center hidden" style="min-width: 280px;">
+        <p id="alert-message" class="text-lg text-primary mb-4"></p>
+        <button id="alert-close" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-gray-800 transition duration-300">Жабу</button>
+    </div>
+
+    <!-- Навигационная панель -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-40 border-b border-accent-beige">
+        <nav class="container mx-auto flex justify-center items-center flex-wrap px-4">
+            <a href="#invitation" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Шақыру</a>
+            <a href="#ceremony" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Той салтанаты</a>
+            <a href="#program" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Той бағдарламасы</a>
+            <a href="#venue" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Мекен жай</a>
+            <a href="#hosts" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Той иелері</a>
+            <a href="#rsvp" class="nav-link mx-3 my-2 text-lg font-medium text-primary hover:text-accent-gold transition duration-300">Келуді растау</a>
+        </nav>
+    </header>
+
+    <!-- Основные секции контента -->
+
+    <!-- Героическая секция приглашения -->
+    <section id="invitation" class="relative section-background min-h-screen text-center px-4"
+        style="background-image: url('https://iimg.su/s/10/clKMZMS9gt63Hak9C6JbCKhuSdM6uXNj9uoKzblN.png');">
+        <div class="section-overlay"></div>
+        <div class="section-content relative z-10 max-w-4xl mx-auto stagger-fade-in rounded-xl">
+            <!-- Визуальный текстовый логотип пары -->
+            <div class="couple-logo mb-12">
+                Idris<span class="absolute inset-x-0 bottom-0 top-auto mx-auto text-center">&</span>Nuraiym
+            </div>
+
+            <p class="text-xl md:text-3xl text-white mb-6">Сіздерді біздің үйлену тойымызға арналған</p>
+            <p class="text-lg md:text-2xl text-white mb-8">салтанатты кешке шақырамыз!</p>
+            <p class="text-2xl md:text-4xl text-white font-semibold">2025 жыл 11 шілде</p>
+            <p class="text-lg md:text-2xl text-white">Сағат 18:00</p>
+            <p class="text-lg md:text-2xl text-accent-gold mt-4">Ақтөбе қаласы, "Дулат" мейрамханасы</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция свадебной церемонии -->
+    <section id="ceremony" class="relative section-background min-h-screen flex items-center justify-center text-center px-4"
+        style="background-image: url('https://iimg.su/s/10/hbFs7VNiuwVNVthL6UeFDq5NATjB5MyIMT55L3Lh.jpg');">
+        <div class="section-overlay"></div>
+        <div class="section-content relative z-10 max-w-3xl mx-auto rounded-xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">Той салтанаты</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-6 text-white">
+                Құрметті қонақтар, сіздерді біздің ерекше күніміз – той салтанатымызға шақырамыз. Біздің осы маңызды сәттерімізді бөлісіп, қуанышымызға ортақтасуға келіңіздер.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed text-white">
+                Той рәсімі "Дулат" мейрамханасында өтеді.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center mt-8">
+                <div class="flex items-center text-white mb-4 md:mb-0 md:mr-8">
+                    <i class="fas fa-calendar-alt text-2xl mr-3 text-accent-gold"></i>
+                    <span class="text-xl">2025 жыл 11 шілде</span>
+                </div>
+                <div class="flex items-center text-white">
+                    <i class="fas fa-clock text-2xl mr-3 text-accent-gold"></i>
+                    <span class="text-xl">Сағат 18:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция программы свадьбы -->
+    <section id="program" class="py-16 md:py-24 bg-gray-50 px-4 fade-in-up">
+        <div class="container mx-auto text-center max-w-4xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-primary">Той бағдарламасы</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary">17:45 - Қонақтарды қарсы алу</h3>
+                    <p class="text-gray-700">Құрметті қонақтарды мейрамханада қарсы аламыз.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary">18:00 - Негізгі рәсімнің басталуы</h3>
+                    <p class="text-gray-700">Жас жұбайлардың салтанатты кіріп келуі және құттықтау сөздері.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary">19:00 - Беташар</h3>
+                    <p class="text-gray-700">Қазақ халқының салт-дәстүрі бойынша келіннің бетін ашу рәсімі.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary">20:00 - Ас мәзірі және ойын-сауық</h3>
+                    <p class="text-gray-700">Дәмді тағамдар ұсынылып, өнерлі әртістердің бағдарламасы басталады.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция места проведения и адреса -->
+    <section id="venue" class="py-16 md:py-24 bg-secondary px-4 fade-in-up">
+        <div class="container mx-auto text-center max-w-4xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-primary">Мекен жай</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-6 text-gray-700">
+                Той салтанаты мына мекен-жайда өтеді:
+            </p>
+            <p class="text-xl md:text-2xl font-semibold mb-8 text-primary">
+                Ақтөбе қаласы, "Дулат" мейрамханасы
+            </p>
+
+            <!-- 2GIS Map Image Placeholder (clickable) -->
+            <a href="https://2gis.kz/aktobe/firm/70000001032565084" target="_blank" class="block w-full h-80 md:h-96 rounded-xl shadow-lg overflow-hidden border border-accent-gold group flex items-center justify-center bg-gray-100 2gis-logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvGiQXr0-om53pxIlgdiYhoQjj-pRPN9hA6Q&s" 
+                     alt="2GIS Logo" 
+                     class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain p-4 transition duration-300 group-hover:scale-105"
+                     onerror="this.onerror=null;this.src='https://placehold.co/320x320/F8F5EF/C0A06A?text=2GIS%20Map%0AClick%20to%20Open';">
+            </a>
+            <p class="text-sm text-gray-600 mt-4">
+                Картаны ашу үшін басыңыз (2GIS)
+            </p>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция хозяев -->
+    <section id="hosts" class="py-16 md:py-24 bg-gray-50 px-4 fade-in-up">
+        <div class="container mx-auto text-center max-w-3xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-primary">Той иелері</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-8 text-gray-700">
+                Біздің тойымыздың ұйымдастырушылары мен қонақтарды қарсы алушылары:
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige transform hover:scale-105 transition duration-300">
+                    <p class="text-2xl font-semibold text-primary mb-2">Руслан</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-subtle border border-accent-beige w-full md:w-1/2 transform hover:scale-105 transition duration-300">
+                    <p class="text-2xl font-semibold text-primary mb-2">Айталан</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция таймера обратного отсчета -->
+    <section class="relative section-background min-h-screen flex items-center justify-center text-center px-4"
+        style="background-image: url('https://iimg.su/s/10/hNuhZLFJDZvRe4Px6kfaN6Y3N9rhS7M1Z5jwY2Zg.png');">
+        <div class="section-overlay"></div>
+        <div class="section-content relative z-10 p-8 bg-white bg-opacity-10 backdrop-blur-sm rounded-xl shadow-2xl max-w-3xl mx-auto border border-accent-beige">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">Тойға дейін қалды</h2>
+            <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8 text-white">
+                <div class="flex flex-col items-center countdown-digit-wrapper transform hover:scale-105 transition duration-300">
+                    <span id="days" class="text-accent-gold text-5xl md:text-7xl font-bold countdown-digit">00</span>
+                    <span class="text-lg md:text-xl countdown-label">күн</span>
+                </div>
+                <div class="flex flex-col items-center countdown-digit-wrapper transform hover:scale-105 transition duration-300">
+                    <span id="hours" class="text-accent-gold text-5xl md:text-7xl font-bold countdown-digit">00</span>
+                    <span class="text-lg md:text-xl countdown-label">сағат</span>
+                </div>
+                <div class="flex flex-col items-center countdown-digit-wrapper transform hover:scale-105 transition duration-300">
+                    <span id="minutes" class="text-accent-gold text-5xl md:text-7xl font-bold countdown-digit">00</span>
+                    <span class="text-lg md:text-xl countdown-label">минут</span>
+                </div>
+                <div class="flex flex-col items-center countdown-digit-wrapper transform hover:scale-105 transition duration-300">
+                    <span id="seconds" class="text-accent-gold text-5xl md:text-7xl font-bold countdown-digit">00</span>
+                    <span class="text-lg md:text-xl countdown-label">секунд</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+        <div class="ornament-divider"></div>
+    </div>
+
+    <!-- Секция формы RSVP -->
+    <section id="rsvp" class="py-16 md:py-24 bg-secondary px-4 fade-in-up">
+        <div class="container mx-auto text-center max-w-3xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-primary">Келуді растау</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-8 text-gray-700">
+                Тойға келуіңізді растауыңызды сұраймыз.
+            </p>
+
+            <form id="rsvp-form" class="bg-gray-50 p-8 rounded-xl shadow-subtle border border-accent-beige">
+                <div class="mb-6 text-left">
+                    <label for="fullName" class="block text-gray-700 text-lg font-medium mb-2">Аты-жөніңіз:</label>
+                    <input type="text" id="fullName" name="fullName" required
+                           class="w-full px-4 py-3 rounded-md border border-accent-beige focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent text-lg">
+                </div>
+
+                <div class="mb-6 text-left">
+                    <label class="block text-gray-700 text-lg font-medium mb-2">Тойға келесіз бе?</label>
+                    <div class="flex items-center mb-2">
+                        <input type="radio" id="attendYes" name="attendance" value="Иә, келемін" required
+                               class="mr-3 h-5 w-5 text-accent-gold focus:ring-accent-gold">
+                        <label for="attendYes" class="text-gray-700 text-lg">Иә, келемін</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="attendNo" name="attendance" value="Жоқ, келе алмаймын"
+                               class="mr-3 h-5 w-5 text-accent-gold focus:ring-accent-gold">
+                        <label for="attendNo" class="text-gray-700 text-lg">Жоқ, келе алмаймын</label>
+                    </div>
+                </div>
+
+                <div class="mb-6 text-left" id="partner-section">
+                    <label class="block text-gray-700 text-lg font-medium mb-2">Кіммен келесіз?</label>
+                    <div class="flex items-center mb-2">
+                        <input type="radio" id="alone" name="partner" value="Өзім"
+                               class="mr-3 h-5 w-5 text-accent-gold focus:ring-accent-gold">
+                        <label for="alone" class="text-gray-700 text-lg">Өзім</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="withPartner" name="partner" value="Жұбыммен"
+                               class="mr-3 h-5 w-5 text-accent-gold focus:ring-accent-gold">
+                        <label for="withPartner" class="text-gray-700 text-lg">Жұбыммен</label>
+                    </div>
+                </div>
+
+                <div class="mb-8 text-left">
+                    <label for="comment" class="block text-gray-700 text-lg font-medium mb-2">Қосымша түсініктеме (міндетті емес):</label>
+                    <textarea id="comment" name="comment" rows="4"
+                              class="w-full px-4 py-3 rounded-md border border-accent-beige focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent text-lg"></textarea>
+                </div>
+
+                <!-- ✨ Кнопка для генерации пожелания с LLM -->
+                <button type="button" id="generate-wish-button"
+                        class="bg-accent-gold text-white px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
+                    ✨ Тілек жасау
+                </button>
+
+                <button type="submit"
+                        class="bg-primary text-white px-8 py-4 rounded-xl shadow-lg hover:bg-gray-800 transition duration-300 text-xl font-semibold transform hover:scale-105">
+                    Жауабымды жіберу
+                </button>
+            </form>
+
+            <p class="text-lg md:text-xl mt-8 text-gray-700">
+                Жауаптар WhatsApp желісі арқылы қабылданады: <a href="https://wa.me/77478090181" target="_blank" class="text-accent-gold underline font-semibold hover:text-primary transition duration-300">+7 747 809 0181</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="bg-primary text-white py-8 text-center">
+        <p class="text-lg">&copy; 2025 Идрис & Нурайым. Барлық құқықтар қорғалған.</p>
+        <p class="text-sm mt-2 text-accent-beige">Ерекше күнімізді бірге тойлайық!</p>
+    </footer>
+
+    <!-- ✨ Модальное окно для Генератора пожеланий -->
+    <div id="wish-generator-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="close-wish-modal">&times;</button>
+            <h3 class="text-3xl font-bold mb-6 text-primary">Ерекше тілек жасаңыз</h3>
+            <div class="mb-4 text-left">
+                <label for="wish-keywords" class="block text-gray-700 text-base font-medium mb-2">Тілекке қатысты кілт сөздерді немесе тақырыпты енгізіңіз (мысалы: 'бақыт, ұзақ ғұмыр, берік отбасы'):</label>
+                <textarea id="wish-keywords" rows="3" class="w-full px-4 py-2 rounded-md border border-accent-beige focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent text-base"></textarea>
+            </div>
+            <button id="call-gemini-wish"
+                    class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
+                Жасау
+            </button>
+            <div id="wish-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[80px] flex items-center justify-center text-center text-gray-700 text-base italic">
+                Сіздің тілегіңіз осы жерде болады...
+            </div>
+            <button id="copy-wish-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
+                Тілекті көшіру
+            </button>
+        </div>
+    </div>
+
+    <!-- ✨ Модальное окно для Генератора Истории Любви -->
+    <div id="love-story-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="close-love-story-modal">&times;</button>
+            <h3 class="text-3xl font-bold mb-6 text-primary">Идрис пен Нурайымның махаббат хикаясын жасаңыз</h3>
+            <div class="mb-4 text-left">
+                <label for="story-keywords" class="block text-gray-700 text-base font-medium mb-2">Олардың танысуының негізгі сәттерін, маңызды күндерін немесе ортақ қызығушылықтарын сипаттаңыз (мысалы: 'университетте танысты, мысықтарды жақсы көреды, Азияға саяхат'):</label>
+                <textarea id="story-keywords" rows="4" class="w-full px-4 py-2 rounded-md border border-accent-beige focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent text-base"></textarea>
+            </div>
+            <button id="call-gemini-story"
+                    class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
+                Хикаяны жасау
+            </button>
+            <div id="story-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[120px] flex items-center justify-center text-center text-gray-700 text-base italic overflow-y-auto max-h-64">
+                Махаббат хикаясы осы жерде болады...
+            </div>
+            <button id="copy-story-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
+                Хикаяны көшіру
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // Пользовательская функция для вывода уведомлений (замена alert)
+        function showCustomAlert(message) {
+            const customAlert = document.getElementById('custom-alert');
+            const alertMessage = document.getElementById('alert-message');
+            const alertClose = document.getElementById('alert-close');
+
+            alertMessage.textContent = message;
+            customAlert.classList.remove('hidden');
+
+            alertClose.onclick = () => customAlert.classList.add('hidden');
+        }
+
+        // Логика анимаций появления элементов при прокрутке
+        // Hero Section Staggered Fade-in Animation (для главного экрана)
+        const heroSection = document.getElementById('invitation');
+        const heroContent = heroSection.querySelector('.stagger-fade-in');
+
+        const heroObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroContent.classList.add('active');
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+
+        heroObserver.observe(heroSection);
+
+
+        // Scroll-triggered Fade-in-up Animation для других секций
+        const animatedSections = document.querySelectorAll('.fade-in-up');
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        animatedSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+
+        // Логика таймера обратного отсчета
+        const countdownDate = new Date("July 11, 2025 18:00:00").getTime();
+
+        const countdownElements = {
+            days: document.getElementById("days"),
+            hours: document.getElementById("hours"),
+            minutes: document.getElementById("minutes"),
+            seconds: document.getElementById("seconds")
+        };
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Обновление цифр с анимацией перелистывания
+            function updateDigit(element, newValue) {
+                const paddedValue = newValue.toString().padStart(2, '0');
+                if (element.textContent !== paddedValue) {
+                    element.classList.add('animate-flip');
+                    setTimeout(() => {
+                        element.textContent = paddedValue;
+                        element.classList.remove('animate-flip');
+                    }, 500); // Соответствует длительности анимации
+                }
+            }
+
+            updateDigit(countdownElements.days, days);
+            updateDigit(countdownElements.hours, hours);
+            updateDigit(countdownElements.minutes, minutes);
+            updateDigit(countdownElements.seconds, seconds);
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "<p class='text-white text-3xl md:text-5xl font-bold'>Той өтті!</p>";
+            }
+        }, 1000);
+
+        // Логика воспроизведения/паузы музыки
+        const music = document.getElementById('background-music');
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = true; // Предполагается попытка автовоспроизведения
+
+        // Попытка воспроизвести музыку при загрузке или первом взаимодействии пользователя
+        window.addEventListener('load', () => {
+            music.play().then(() => {
+                isPlaying = true;
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }).catch(e => {
+                console.warn("Автовоспроизведение заблокировано:", e);
+                isPlaying = false;
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            });
+        }, { once: true });
+
+
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            } else {
+                music.play().catch(e => console.error("Воспроизведение музыки не удалось:", e));
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Логика отправки формы RSVP
+        document.getElementById('rsvp-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+            let partner = '';
+            const partnerRadios = document.querySelector('input[name="partner"]:checked');
+            if (partnerRadios) {
+                partner = partnerRadios.value;
+            }
+            const comment = document.getElementById('comment').value;
+
+            if (!attendance) {
+                showCustomAlert("Тойға келу туралы таңдауыңызды көрсетіңіз!");
+                return;
+            }
+
+            let message = `Сәлем!%0AМен ${fullName}.%0AТойға: ${attendance}.`;
+
+            if (attendance === "Иә, келемін") {
+                if (partner) {
+                    message += `%0AКіммен: ${partner}.`;
+                }
+            }
+
+            if (comment) {
+                message += `%0AТүсініктеме: ${comment}.`;
+            }
+
+            const whatsappNumber = '77478090181';
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            window.open(whatsappLink, '_blank');
+
+            showCustomAlert('Жауабыңыз жіберілді! WhatsApp арқылы жіберу үшін жаңа терезеге өтіңіз.');
+            this.reset();
+        });
+
+        // Показать/скрыть секцию выбора спутника в зависимости от посещения
+        const attendYes = document.getElementById('attendYes');
+        const attendNo = document.getElementById('attendNo');
+        const partnerSection = document.getElementById('partner-section');
+
+        function togglePartnerSection() {
+            if (attendYes.checked) {
+                partnerSection.style.display = 'block';
+                document.getElementById('alone').setAttribute('required', 'required');
+                document.getElementById('withPartner').setAttribute('required', 'required');
+            } else {
+                partnerSection.style.display = 'none';
+                document.getElementById('alone').removeAttribute('required');
+                document.getElementById('withPartner').removeAttribute('required');
+            }
+        }
+
+        attendYes.addEventListener('change', togglePartnerSection);
+        attendNo.addEventListener('change', togglePartnerSection);
+        togglePartnerSection();
+
+
+        // ✨ Логика Генератора пожеланий с Gemini API
+        const generateWishButton = document.getElementById('generate-wish-button');
+        const wishGeneratorModal = document.getElementById('wish-generator-modal');
+        const closeWishModalButton = document.getElementById('close-wish-modal');
+        const callGeminiWishButton = document.getElementById('call-gemini-wish'); 
+        const wishKeywordsInput = document.getElementById('wish-keywords');
+        const wishOutput = document.getElementById('wish-output');
+        const copyWishButton = document.getElementById('copy-wish-button');
+
+        generateWishButton.addEventListener('click', () => {
+            wishGeneratorModal.classList.remove('hidden');
+            wishGeneratorModal.classList.add('open');
+            wishKeywordsInput.value = '';
+            wishOutput.innerHTML = 'Сіздің тілегіңіз осы жерде болады...'; // Казахский текст
+            copyWishButton.classList.add('hidden');
+        });
+
+        closeWishModalButton.addEventListener('click', () => {
+            wishGeneratorModal.classList.remove('open');
+            wishGeneratorModal.classList.add('hidden');
+        });
+
+        wishGeneratorModal.addEventListener('click', (e) => {
+            if (e.target === wishGeneratorModal) {
+                wishGeneratorModal.classList.remove('open');
+                wishGeneratorModal.classList.add('hidden');
+            }
+        });
+
+        callGeminiWishButton.addEventListener('click', async () => {
+            const keywords = wishKeywordsInput.value.trim();
+            const prompt = `Жаңа үйленгендерге арнап келесі кілт сөздерге негізделген қысқа, талғампаз және жылы үйлену тойына арналған тілек жазыңыз: "${keywords}". Егер кілт сөздер көрсетілмесе, жалпы, бірақ әдемі тілек жазыңыз. Тілек үйлену тойына арналған сайтқа сәйкес ресми стильде болуы керек. Жауап қазақ тілінде болуы керек.`;
+
+            wishOutput.innerHTML = '<p class="text-accent-gold italic">Тілек жасалуда...</p>';
+            copyWishButton.classList.add('hidden');
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    wishOutput.innerHTML = `<p class="text-primary text-base">${text}</p>`;
+                    copyWishButton.classList.remove('hidden');
+                    wishOutput.setAttribute('data-generated-wish', text);
+                } else {
+                    wishOutput.innerHTML = '<p class="text-red-500">Тілек жасау мүмкін болмады. Қайталап көріңіз.</p>';
+                    console.error("Gemini API response structure unexpected:", result);
+                }
+            } catch (error) {
+                wishOutput.innerHTML = '<p class="text-red-500">API қосылуында қате. Кейінірек қайталап көріңіз.</p>';
+                    console.error("Error calling Gemini API:", error);
+            }
+        });
+
+        copyWishButton.addEventListener('click', () => {
+            const wishToCopy = wishOutput.getAttribute('data-generated-wish');
+            if (wishToCopy) {
+                const textArea = document.createElement('textarea');
+                textArea.value = wishToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCustomAlert('Тілек алмасу буферіне көшірілді!');
+                } catch (err) {
+                    console.error('Тілекті көшіру мүмкін болмады: ', err);
+                    showCustomAlert('Тілекті көшіру мүмкін болмады.');
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+
+        // ✨ Логика Генератора Истории Любви с Gemini API
+        const loveStoryGeneratorBtn = document.getElementById('love-story-generator-btn');
+        const loveStoryModal = document.getElementById('love-story-modal');
+        const closeLoveStoryModalBtn = document.getElementById('close-love-story-modal');
+        const callGeminiStoryBtn = document.getElementById('call-gemini-story');
+        const storyKeywordsInput = document.getElementById('story-keywords');
+        const storyOutput = document.getElementById('story-output');
+        const copyStoryButton = document.getElementById('copy-story-button');
+
+        loveStoryGeneratorBtn.addEventListener('click', () => {
+            loveStoryModal.classList.remove('hidden');
+            loveStoryModal.classList.add('open');
+            storyKeywordsInput.value = '';
+            storyOutput.innerHTML = 'Махаббат хикаясы осы жерде болады...';
+            copyStoryButton.classList.add('hidden');
+        });
+
+        closeLoveStoryModalBtn.addEventListener('click', () => {
+            loveStoryModal.classList.remove('open');
+            loveStoryModal.classList.add('hidden');
+        });
+
+        loveStoryModal.addEventListener('click', (e) => {
+            if (e.target === loveStoryModal) {
+                loveStoryModal.classList.remove('open');
+                loveStoryModal.classList.add('hidden');
+            }
+        });
+
+        callGeminiStoryBtn.addEventListener('click', async () => {
+            const keywords = storyKeywordsInput.value.trim();
+            const coupleNames = "Идрис пен Нурайым";
+            const prompt = `"${coupleNames}" жұбы үшін келесі кілт сөздерге негізделген қысқа, әдемі, эмоционалды және поэтикалық махаббат хикаясын жазыңыз: "${keywords}". Егер кілт сөздер көрсетілмесе, олардың бірегейлігі мен терең байланысын көрсететін жалпы романтикалық хикая жасаңыз. Хикая үйлену тойына арналған сайтқа сәйкес ресми, бірақ жылы стильде болуы керек. Жауап қазақ тілінде болуы керек.`;
+
+            storyOutput.innerHTML = '<p class="text-accent-gold italic">Хикая жасалуда...</p>';
+            copyStoryButton.classList.add('hidden');
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    storyOutput.innerHTML = `<p class="text-primary text-base">${text}</p>`;
+                    copyStoryButton.classList.remove('hidden');
+                    storyOutput.setAttribute('data-generated-story', text);
+                } else {
+                    storyOutput.innerHTML = '<p class="text-red-500">Хикаяны жасау мүмкін болмады. Қайталап көріңіз.</p>';
+                    console.error("Gemini API response structure unexpected:", result);
+                }
+            } catch (error) {
+                storyOutput.innerHTML = '<p class="text-red-500">API қосылуында қате. Кейінірек қайталап көріңіз.</p>';
+                    console.error("Error calling Gemini API:", error);
+            }
+        });
+
+        copyStoryButton.addEventListener('click', () => {
+            const storyToCopy = storyOutput.getAttribute('data-generated-story');
+            if (storyToCopy) {
+                const textArea = document.createElement('textarea');
+                textArea.value = storyToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCustomAlert('Хикая алмасу буферіне көшірілді!');
+                } catch (err) {
+                    console.error('Хикаяны көшіру мүмкін болмады: ', err);
+                    showCustomAlert('Хикаяны көшіру мүмкін болмады.');
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+    </script>
+</body>
+</html>
